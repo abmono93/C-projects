@@ -16,6 +16,7 @@ int nextprime;
 int upto;
 int upperbound = MIN(n, MAXLISTSIZE);
 int primes[upperbound];
+int *nthprime = &primes[upperbound - 1];
 //Define first prime number as 2
 primes[prime++] = 2;
 while (prime < upperbound){
@@ -67,9 +68,10 @@ while (n  > 0){
 	//No space to save primes, so use n to keep track of which
 	//prime we're on
 	if (isPrime){
+		*nthprime = i;
 		n--;
 	}
 }
 //print the n'th prime
-printf("%d\n", i);
+printf("%d\n", *nthprime);
 }
