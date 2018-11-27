@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
-#define MAXLISTSIZE 1000000
+#define MAXLISTSIZE 1500000
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 
 int main(int argc, char** argv){
@@ -20,8 +21,8 @@ primes[prime++] = 2;
 while (prime < upperbound){
 	//Only check if odd numbers are prime
 	i += 2;
-	//Stop checking factors when they are more than half of i
-	upto = i/2;
+	//Stop checking factors when they are more than sqrt(i)
+	upto = (int) sqrt(i);
 	isPrime = 1;
 	//Loop through the list of prime numbers (skip first one
 	//since none are even)
@@ -44,7 +45,7 @@ n -= upperbound;
 //yet
 while (n  > 0){
 	i += 2; 
-	upto = i/2;
+	upto = (int) sqrt(i);
 	isPrime = 1;
 	//Check the numbers on the list first
 	for (j = 1; j < upperbound; j++){
